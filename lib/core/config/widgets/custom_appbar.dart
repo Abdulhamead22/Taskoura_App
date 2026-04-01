@@ -7,7 +7,7 @@ class CustomAppBar extends StatelessWidget {
   const CustomAppBar({
     super.key,
     required this.title,
-    this.actions = const [],
+    required this.actions ,
   });
 
   @override
