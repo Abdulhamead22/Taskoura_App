@@ -17,7 +17,8 @@ class AppSizes {
 
   // Icon
   static const double iconSmall = 22.0; 
-  
+
+
   // Button Sizes
   static const double buttonHeight = 48.0;
   static const double buttonWidth = 339.0;
@@ -31,6 +32,7 @@ class AppSizes {
   //Card
   static const double cardHeight = 112.0;
   static const double cardWidth = 335.0;
+  static const double boardingHigth = 250;
 
  //Indicator   
 static const double indicatorHeight = 6.0;

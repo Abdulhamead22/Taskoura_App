@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/core/config/constants/app_sizes.dart';
 
 class AppTextField extends StatelessWidget {
   final TextEditingController controller;
@@ -12,7 +13,6 @@ class AppTextField extends StatelessWidget {
   final ValueChanged<String>? onChanged;
   final ValueChanged<String>? onSubmitted;
   final bool isPassword;
-  final FocusNode? focusNode;
 
   const AppTextField({
     super.key,
@@ -27,14 +27,12 @@ class AppTextField extends StatelessWidget {
     this.onChanged,
     this.onSubmitted,
     this.isPassword = false,
-    this.focusNode,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
-      focusNode: focusNode,
       obscureText: isPassword,
       keyboardType: keyboardType,
       onTap: onTap,
@@ -46,8 +44,9 @@ class AppTextField extends StatelessWidget {
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(borderRadius!),
+          borderRadius: BorderRadius.circular(borderRadius?? AppSizes.radiusMedium),
         ),
+        
       ),
     );
   }

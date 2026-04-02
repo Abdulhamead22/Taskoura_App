@@ -26,7 +26,7 @@ extension TextStyleExtension on TextStyle {
   static const TextStyle h4 = TextStyle(
     fontFamily: 'Cairo',
     fontSize: 12,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w700,
   );
 
   /// ================= BODY =================
@@ -74,7 +74,7 @@ extension TextStyleExtension on TextStyle {
   static const TextStyle buttonPrimary = TextStyle(
     fontFamily: 'Cairo',
     fontSize: 15,
-    fontWeight: FontWeight.w600,
+    fontWeight: FontWeight.w700,
     height: 20 / 15,
   );
 
@@ -96,5 +96,10 @@ extension TextStyleExtension on TextStyle {
     fontFamily: 'Cairo',
     fontSize: 10,
     fontWeight: FontWeight.w500,
+  );
+  static const TextStyle emptyState = TextStyle(
+    fontFamily: 'Cairo',
+    fontSize: 24,
+    fontWeight: FontWeight.w700,
   );
 }

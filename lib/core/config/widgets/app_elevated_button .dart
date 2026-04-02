@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/core/config/constants/app_sizes.dart';
+import 'package:flutter_application_1/core/config/constants/color_manager.dart';
+import 'package:flutter_application_1/core/extensions/text_style_extension.dart';
 
 class AppElevatedButton extends StatelessWidget {
   final String text;
@@ -6,27 +9,36 @@ class AppElevatedButton extends StatelessWidget {
   final Color? backgroundColor;
   final double? width;
   final double? height;
+    final double? borderRadius;
+  final double? padding;
+
 
   const AppElevatedButton({
     super.key,
     required this.text,
     required this.onPressed,
-    required this.backgroundColor,
-    required this.width,
-    required this.height,
+     this.backgroundColor,
+     this.width,
+     this.height,
+     this.borderRadius,
+     this.padding,
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: width ,
-      height: height,
+      width: width ?? double.infinity ,
+      height: height ?? AppSizes.buttonHeight,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: backgroundColor,
+          backgroundColor: backgroundColor??ColorManager.primary,
+      padding:  EdgeInsets.all(padding??AppSizes.buttonPadding),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(borderRadius??AppSizes.radiusSmall)
+      )
         ),
         onPressed: onPressed,
-        child: Text(text),
+        child: Text(text,style: TextStyleExtension.buttonPrimary,),
       ),
     );
   }

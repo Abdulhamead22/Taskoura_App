@@ -1,43 +1,51 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/core/config/constants/color_manager.dart';
 import 'package:flutter_application_1/core/config/widgets/app_elevated_button%20.dart';
+import 'package:flutter_application_1/core/extensions/text_style_extension.dart';
 
 class AppEmptyState extends StatelessWidget {
-    final String title;
-      final TextStyle titleStyle;
+  final String title;
 
-      final String subTitle;
-      final TextStyle subTitleStyle;
+  final String subTitle;
 
   final String path;
-    final String textButton;
-      final VoidCallback onPressed;
+  final String textButton;
+  final VoidCallback onPressed;
 
-          final Color backgroundColor;
-            final double width;
-  final double height;
-
-
-
-
-
-  const AppEmptyState({super.key, required this.title, required this.titleStyle, required this.subTitle, required this.subTitleStyle, required this.path, required this.textButton, required this.onPressed, required this.backgroundColor, required this.width, required this.height});
+  const AppEmptyState({
+    super.key,
+    required this.title,
+    required this.subTitle,
+    required this.path,
+    required this.textButton,
+    required this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Image.asset(path),
-        const SizedBox(height: 8,),
-        Text(title,style: titleStyle,),
-        const SizedBox(height: 5,),
-        Text(subTitle,style: subTitleStyle,),
+        const SizedBox(
+          height: 8,
+        ),
+        Text(
+          title,
+          style: TextStyleExtension.emptyState
+              .copyWith(color: ColorManager.primary),
+        ),
+        const SizedBox(
+          height: 5,
+        ),
+        Text(
+          subTitle,
+          style: TextStyleExtension.bodySmall
+              .copyWith(color: ColorManager.secondaryText),
+        ),
         AppElevatedButton(
-          text: textButton, 
+          text: textButton,
           onPressed: onPressed,
-           backgroundColor: backgroundColor,
-            width: width, 
-            height: height),
-      
+        ),
       ],
     );
   }

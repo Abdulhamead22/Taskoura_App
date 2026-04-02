@@ -1,29 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/core/config/constants/app_sizes.dart';
+import 'package:flutter_application_1/core/config/constants/color_manager.dart';
 
 class DotsIndicator extends StatelessWidget {
   final int count;
   final int currentIndex;
-  final Color colorSelect;
-  final Color colorNotSelect;
 
 
   const DotsIndicator({
     super.key,
     required this.count,
     required this.currentIndex,
-     required this.colorSelect,
-      required this.colorNotSelect,
   });
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: List.generate(count, (index) {
+        
         return Container(
-          width: 8,
-          height: 8,
+          width: AppSizes.indicatorWidth,
+          height: AppSizes.indicatorHeight,
           decoration: BoxDecoration(
-            color: index == currentIndex ? colorSelect : colorNotSelect,
+            color: index == currentIndex ? ColorManager.primary : ColorManager.hover,
             shape: BoxShape.circle,
           ),
         );

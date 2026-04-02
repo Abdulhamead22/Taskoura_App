@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/core/config/widgets/app_elevated_button%20.dart';
 
 class AppAlertDialog extends StatelessWidget {
   final String title;
@@ -14,13 +15,11 @@ class AppAlertDialog extends StatelessWidget {
       title: Text(title),
       content: content,
       actions: [
-        TextButton(
-          onPressed: onPressed,
-          child: const Text("Confirm"),
-        ),
-        TextButton(
+        AppElevatedButton(text:"Confirm" , onPressed: onPressed),
+      
+        AppElevatedButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: const Text("Cancel"),
+          text: "Cancel",
         ),
       ],
     );
