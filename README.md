@@ -28,5 +28,4 @@ It helps users focus and stay organized through a smooth and simple user experie
 The application provides a great and simple user experience.
 
 # ## video of drive
-
 https://drive.google.com/file/d/13c4in8nxtQ_C3bkvN42ZeMSudZ7QJ-LT/view?usp=sharing
