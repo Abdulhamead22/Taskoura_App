@@ -1,16 +1,29 @@
-# flutter_application_1
+# 📱 Taskoura
 
-A new Flutter project.
+## 🧩 Overview
 
-## Getting Started
+Taskoura is an application designed to help users efficiently manage their daily tasks.
+The app is designed for students, professionals, and anyone who wants to stay focused, productive, and in control of their time.
 
-This project is a starting point for a Flutter application.
+# ## ❗ Problem Statement
 
-A few resources to get you started if this is your first Flutter project:
+Many people struggle to organize and track their daily tasks.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+This can lead to wasted time and poor results.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# ## 💡 Solution
+
+The application provides a simple and easy-to-use way to create, manage, and track tasks.
+
+It helps users focus and stay organized through a smooth and simple user experience.
+
+# ## 🚀 Key Features
+
+* Add, edit, and delete tasks
+* Task organization
+* Sleek and modern user interface
+
+# ## 🌟 Value Proposition
+
+The application provides a great and simple user experience.
+
