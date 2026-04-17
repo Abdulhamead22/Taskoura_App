@@ -16,8 +16,11 @@ class AppTaskListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppCustomCard(
       child: ListTile(
-        title: Text(title,style: TextStyleExtension.h4.copyWith(color: ColorManager.primary),),
-        subtitle: Text(subTitle,style: TextStyleExtension.labelSmall.copyWith(color: ColorManager.secondaryText),),
+        title: Text(title,style: AppTextStyles.bodySmall.copyWith(
+  fontWeight: FontWeight.bold,
+  color: ColorManager.primary,
+),),
+        subtitle: Text(subTitle,style: AppTextStyles.bodySmall.copyWith(color: ColorManager.secondaryText),),
 
         trailing: AppStatusBadge(text: status,),
       ),

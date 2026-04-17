@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/config/constants/app_sizes.dart';
 import 'package:flutter_application_1/core/config/widgets/app_custom_card.dart';
-import 'package:flutter_application_1/core/config/widgets/appp_linear_progress_card.dart';
+import 'package:flutter_application_1/core/config/widgets/app_linear_progress_card.dart';
 import 'package:flutter_application_1/core/extensions/text_style_extension.dart';
 
 class AppProjectListCard extends StatelessWidget {
@@ -17,9 +17,9 @@ class AppProjectListCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(title, style:TextStyleExtension.h3),
-            const SizedBox(height: 10),
-            ApppLinearProgressCard(value: progress),
+            Text(title, style:AppTextStyles.headingMedium),
+            const SizedBox(height: AppSizes.buttonPadding),
+            AppLinearProgressCard(value: progress),
           ],
         ),
       ),

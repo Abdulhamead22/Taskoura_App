@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/core/config/constants/app_sizes.dart';
 import 'package:flutter_application_1/core/config/constants/color_manager.dart';
 import 'package:flutter_application_1/core/config/widgets/app_elevated_button%20.dart';
 import 'package:flutter_application_1/core/extensions/text_style_extension.dart';
@@ -27,11 +28,11 @@ class AppEmptyState extends StatelessWidget {
       children: [
         Image.asset(path),
         const SizedBox(
-          height: 8,
+          height: AppSizes.paddingSmall,
         ),
         Text(
           title,
-          style: TextStyleExtension.emptyState
+          style: AppTextStyles.emptyState
               .copyWith(color: ColorManager.primary),
         ),
         const SizedBox(
@@ -39,7 +40,7 @@ class AppEmptyState extends StatelessWidget {
         ),
         Text(
           subTitle,
-          style: TextStyleExtension.bodySmall
+          style: AppTextStyles.bodySmall
               .copyWith(color: ColorManager.secondaryText),
         ),
         AppElevatedButton(

@@ -38,7 +38,7 @@ class AppElevatedButton extends StatelessWidget {
       )
         ),
         onPressed: onPressed,
-        child: Text(text,style: TextStyleExtension.buttonPrimary,),
+        child: Text(text,style: AppTextStyles.buttonLabel,),
       ),
     );
   }

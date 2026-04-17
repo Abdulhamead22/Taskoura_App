@@ -29,7 +29,9 @@ class IconElevetedButton extends StatelessWidget {
       child: ElevatedButton.icon(
         onPressed: onPressed,
         icon: Icon(icon,),
-        label: Text(text,style: TextStyleExtension.buttonPrimary,),
+        label: Text(text,style: AppTextStyles.buttonLabel.copyWith(
+    fontWeight: FontWeight.bold,
+  ),),
         style: ElevatedButton.styleFrom(
           backgroundColor: backgroundColor??ColorManager.primary,
         ),

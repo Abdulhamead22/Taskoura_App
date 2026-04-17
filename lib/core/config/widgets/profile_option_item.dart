@@ -20,7 +20,7 @@ class ProfileOptionItem extends StatelessWidget {
           color: ColorManager.submitButtonText,
           size: size ?? AppSizes.iconSmall,
         ),
-        title: Text(title,style: TextStyleExtension.h1.copyWith(color: ColorManager.submitButtonText),),
+        title: Text(title,style: AppTextStyles.headingLarge.copyWith(color: ColorManager.submitButtonText),),
       ),
     );
   }

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class ApppLinearProgressCard extends StatelessWidget {
+class AppLinearProgressCard extends StatelessWidget {
   final double value;
 
-  const ApppLinearProgressCard({
+  const AppLinearProgressCard({
     super.key,
     required this.value,
   });

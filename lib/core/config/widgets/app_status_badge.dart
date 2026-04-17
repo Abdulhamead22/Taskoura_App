@@ -8,30 +8,36 @@ class AppStatusBadge extends StatelessWidget {
   final Color? color;
   final double? radius;
   final double? width;
-  final double? higth;
+  final double? height;
 
   const AppStatusBadge({
     super.key,
     required this.text,
-     this.color,
-     this.radius,
-     this.width,
-     this.higth,
-
+    this.color,
+    this.radius,
+    this.width,
+    this.height,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: width??AppSizes.priorityWidth,
-      height: higth??AppSizes.priorityHeight,
+       padding: const EdgeInsets.symmetric(
+      horizontal: AppSizes.paddingSmall,
+      vertical: 4,
+    ),
+      width: width ?? double.infinity,
+      height: height ?? AppSizes.priorityHeight,
       decoration: BoxDecoration(
         color: color,
-        borderRadius: BorderRadius.circular(radius??AppSizes.radiusLarge),
+        borderRadius: BorderRadius.circular(radius ?? AppSizes.radiusLarge),
       ),
       child: Text(
         text,
-        style: TextStyleExtension.buttonSmall.copyWith(color:color?? ColorManager.submitButtonText),
+              textAlign: TextAlign.center,
+
+        style: AppTextStyles.buttonLabel
+            .copyWith(color: color ?? ColorManager.submitButtonText),
       ),
     );
   }

@@ -19,7 +19,7 @@ class DotsIndicator extends StatelessWidget {
       children: List.generate(count, (index) {
         
         return Container(
-          width: AppSizes.indicatorWidth,
+          width: double.infinity,
           height: AppSizes.indicatorHeight,
           decoration: BoxDecoration(
             color: index == currentIndex ? ColorManager.primary : ColorManager.hover,

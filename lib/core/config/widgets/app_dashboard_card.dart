@@ -29,11 +29,11 @@ class AppDashboardCard extends StatelessWidget {
           const SizedBox(
             height: 5,
           ),
-          Text(title,style: TextStyleExtension.h4.copyWith(color: ColorManager.submitButtonText),),
+          Text(title,style: AppTextStyles.labelMedium.copyWith(color: ColorManager.submitButtonText),),
           const SizedBox(
             height: 5,
           ),
-          Text(subtitle,style: TextStyleExtension.labelRegular.copyWith(color: ColorManager.secondaryText),),
+          Text(subtitle,style: AppTextStyles.bodySmall.copyWith(color: ColorManager.secondaryText),),
         ],
       ),
     );
