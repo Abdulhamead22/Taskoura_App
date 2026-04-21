@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class AppTextStyles {
   static const String fontFamily = 'Cairo';
 
@@ -6,7 +7,7 @@ class AppTextStyles {
   static const TextStyle headingLarge = TextStyle(
     fontFamily: fontFamily,
     fontSize: 24,
-    fontWeight: FontWeight.bold,
+    fontWeight: FontWeight.w700,
   );
 
   static const TextStyle headingMedium = TextStyle(

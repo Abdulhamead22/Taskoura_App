@@ -10,6 +10,7 @@ class AppSizes {
   // Padding
   static const double buttonPadding = 10.0;
   static const double paddingSmall = 8.0;
+  static const double paddingVerySmall = 2.0;
   static const double paddingMedium = 20.0;
   static const double paddingLarge = 24.0;
 
@@ -31,6 +32,7 @@ class AppSizes {
 
   //Indicator
   static const double indicatorHeight = 6.0;
+  static const double indicatorWidth = 36.0;
 
   //Priority
   static const double priorityHeight = 14.0;

@@ -4,7 +4,8 @@ import 'package:flutter_application_1/features/splash_onboarding/presentation/bl
 import 'package:flutter_application_1/features/splash_onboarding/presentation/bloc/splash_onboarding_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SplashOnboardingBloc extends Bloc<SplashOnboardingEvent, SplashOnboardingState> {
+class SplashOnboardingBloc
+    extends Bloc<SplashOnboardingEvent, SplashOnboardingState> {
   final CheckOnboardingStatusUseCase checkOnboarding;
   final CompleteOnboardingUseCase completeOnboarding;
 
@@ -12,17 +13,18 @@ class SplashOnboardingBloc extends Bloc<SplashOnboardingEvent, SplashOnboardingS
     required this.checkOnboarding,
     required this.completeOnboarding,
   }) : super(IniialState()) {
-
 // start app any user
     on<AppStartedEvent>((event, emit) async {
       emit(LoadingState());
+      await Future.delayed(const Duration(seconds: 3));
+
 // check onboarding
       final isOnboardingComplete = await checkOnboarding();
 
-     if (!isOnboardingComplete) {
+      if (!isOnboardingComplete) {
         emit(ShowOnboardingState());
       } else {
-        emit(NavigateToHomeState()); 
+        emit(NavigateToHomeState());
       }
     });
 // complete onboarding with new user

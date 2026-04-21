@@ -7,6 +7,8 @@ class AppElevatedButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
   final Color? backgroundColor;
+  final Color? textColor;
+
   final double? width;
   final double? height;
     final double? borderRadius;
@@ -18,6 +20,7 @@ class AppElevatedButton extends StatelessWidget {
     required this.text,
     required this.onPressed,
      this.backgroundColor,
+     this.textColor,
      this.width,
      this.height,
      this.borderRadius,
@@ -38,7 +41,7 @@ class AppElevatedButton extends StatelessWidget {
       )
         ),
         onPressed: onPressed,
-        child: Text(text,style: AppTextStyles.buttonLabel,),
+        child: Text(text,style: AppTextStyles.buttonLabel.copyWith(color: textColor??ColorManager.backgroundLight),),
       ),
     );
   }
