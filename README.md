@@ -31,5 +31,68 @@ Taskoura solves this by providing a clean and intuitive task management experien
 
 Taskoura empowers users to take command of their productivity by combining a distraction-free interface with meaningful insights. It helps transform everyday tasks into measurable progress, enabling users to stay focused, organized, and results-driven.
 
-# ## video of drive
-https://drive.google.com/file/d/13c4in8nxtQ_C3bkvN42ZeMSudZ7QJ-LT/view?usp=sharing
+---
+
+## 🚀 App Launch Process
+
+The app provides a smooth launch process to ensure a seamless user experience for new users.
+
+### 📌 Workflow Overview
+
+1. App startup: A splash screen is displayed.
+
+2. The app checks if the onboarding process is complete.
+
+3. Based on the result:
+
+- New users → Setup screens
+
+- Returning users → Go directly to the home screen.
+
+-
+
+### 🧠 App Architecture
+
+This workflow is built using clean architecture principles:
+
+- Presentation layer :
+
+- Built using BLoC (flutter_bloc)
+
+- Handles the rendering of the user interface and listens for the app's state.
+
+- Domain layer, which includes the following use cases:
+
+- Setup status verification use case
+
+- Setup completion use case
+
+- Data layer :
+
+- Checking and saving complete Onboarding
+- Local data source using SharedPreferences
+
+--
+
+### 🔄 State Management
+
+The application uses BLoC to manage the startup workflow:
+
+- **Events**
+
+- Application startup event
+- Setup completion event
+
+- **States**
+- Initial State
+- Loading State
+- Show Onboarding State
+- Navigate To Home State
+
+---
+
+### 💾 Local Storage
+
+Setup completion data is stored locally using SharedPreferences to ensure the setup is viewed only once.
+
+---
