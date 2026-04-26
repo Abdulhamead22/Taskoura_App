@@ -36,4 +36,8 @@ class AppSizes {
 
   //Priority
   static const double priorityHeight = 14.0;
+  //logo 
+  static const double logoHeight = 230.0;
+  static const double logoWidth = 230.0;
+
 }

@@ -3,7 +3,9 @@ import 'package:flutter_application_1/core/config/constants/app_sizes.dart';
 import 'package:flutter_application_1/core/config/constants/color_manager.dart';
 import 'package:flutter_application_1/core/config/constants/image_path.dart';
 import 'package:flutter_application_1/core/config/widgets/app_elevated_button%20.dart';
+import 'package:flutter_application_1/core/config/widgets/custom_appbar.dart';
 import 'package:flutter_application_1/core/config/widgets/dots_indicator.dart';
+import 'package:flutter_application_1/core/config/widgets/onboarding_content.dart';
 import 'package:flutter_application_1/core/extensions/text_style_extension.dart';
 import 'package:flutter_application_1/features/splash_onboarding/presentation/bloc/splash_onboarding_bloc.dart';
 import 'package:flutter_application_1/features/splash_onboarding/presentation/bloc/splash_onboarding_event.dart';
@@ -75,9 +77,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       },
       child: Scaffold(
         backgroundColor: boardingModel[currentIndex].color,
-        appBar: AppBar(
-          backgroundColor: boardingModel[currentIndex].color,
-          actions: [
+      appBar: CustomAppBar(
+         backgroundColor: boardingModel[currentIndex].color,
+     actions: [
             if (!isLast)
               TextButton(
                 onPressed: () {
@@ -90,7 +92,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ),
               ),
           ],
-        ),
+      ),
         body: Padding(
           padding: const EdgeInsets.all(AppSizes.paddingSmall),
           child: Column(
@@ -100,7 +102,16 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   physics: const BouncingScrollPhysics(),
                   controller: boardingController,
                   itemBuilder: (context, index) {
-                    return buildBoardingItem(boardingModel[index]);
+                    return OnboardingContent(
+                      path: boardingModel[index].image,
+                      title: boardingModel[index].title,
+                      subtitle: boardingModel[index].body,
+                      styleSubtitle: AppTextStyles.bodyMedium.copyWith(
+                        color: isLast
+                            ? ColorManager.backgroundLight
+                            : ColorManager.secondaryText,
+                      ),
+                    );
                   },
                   itemCount: boardingModel.length,
                   onPageChanged: (value) {
@@ -151,35 +162,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           ),
         ),
       ),
-    );
-  }
-
-  Widget buildBoardingItem(BoardingModel model) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Image(
-          image: AssetImage(model.image),
-        ),
-        const SizedBox(height: AppSizes.paddingMedium),
-        Text(
-          model.title,
-          style: AppTextStyles.headingLarge.copyWith(
-            color: ColorManager.submitButtonText,
-          ),
-          textAlign: TextAlign.center,
-        ),
-        const SizedBox(height: AppSizes.priorityHeight),
-        Text(
-          model.body,
-          style: AppTextStyles.bodyMedium.copyWith(
-            color: isLast
-                ? ColorManager.backgroundLight
-                : ColorManager.secondaryText,
-          ),
-          textAlign: TextAlign.center,
-        ),
-      ],
     );
   }
 

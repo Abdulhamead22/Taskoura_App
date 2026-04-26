@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/config/constants/app_sizes.dart';
+import 'package:flutter_application_1/core/config/constants/color_manager.dart';
 import 'package:flutter_application_1/core/extensions/text_style_extension.dart';
 
 class OnboardingContent extends StatelessWidget {
   final String path;
   final String title;
-  final TextStyle? style;
+  final TextStyle? styleSubtitle;
   final String? subtitle;
   final double? width;
   final double? height;
@@ -14,7 +15,7 @@ class OnboardingContent extends StatelessWidget {
     super.key,
     required this.path,
     required this.title,
-    this.style,
+    this.styleSubtitle,
     this.subtitle,
     this.height,
     this.width,
@@ -25,20 +26,28 @@ class OnboardingContent extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image.asset(
-          path,
-          width: width ?? double.infinity,
-          height: height ?? AppSizes.boardingheight,
+        Expanded(
+          child: Image.asset(
+            path,
+            width: width ?? double.infinity,
+            height: height ?? AppSizes.boardingheight,
+          ),
         ),
         const SizedBox(height: AppSizes.paddingMedium),
-        Text(title, style: style??AppTextStyles.headingMedium,),
-        const SizedBox(height: AppSizes.paddingSmall),
-          Text(
-            subtitle!,
-            textAlign: TextAlign.center,
-            style: AppTextStyles.bodySmall,
+        Text(
+          title,
+          style: AppTextStyles.headingLarge.copyWith(
+            color: ColorManager.submitButtonText,
           ),
-        const SizedBox(height: AppSizes.buttonPadding),
+          textAlign: TextAlign.center,
+        ),
+        const SizedBox(height: AppSizes.priorityHeight),
+        Text(
+          subtitle!,
+          textAlign: TextAlign.center,
+          style: styleSubtitle ?? AppTextStyles.bodySmall,
+        ),
+        const SizedBox(height: AppSizes.paddingLarge),
       ],
     );
   }
