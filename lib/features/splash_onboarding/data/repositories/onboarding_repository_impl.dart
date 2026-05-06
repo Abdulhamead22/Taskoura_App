@@ -1,9 +1,8 @@
-
-import 'package:flutter_application_1/features/splash_onboarding/data/datasources/onboarding_local_data_source.dart';
+import 'package:flutter_application_1/features/splash_onboarding/data/datasources/app_local_data_source.dart';
 import 'package:flutter_application_1/features/splash_onboarding/domain/repositories/onboarding_repository.dart';
 
 class OnboardingRepositoryImpl implements OnboardingRepository {
-  final OnboardingLocalDataSource onboardingLocalDataSource;
+  final AppLocalDataSource onboardingLocalDataSource;
 
   OnboardingRepositoryImpl(this.onboardingLocalDataSource);
 
@@ -20,9 +19,8 @@ class OnboardingRepositoryImpl implements OnboardingRepository {
   }
 
   @override
-  //if token is available 
-  Future<bool> hasToken() async {
-    final token = await onboardingLocalDataSource.getToken();
-    return token != null && token.isNotEmpty;
+  //if token is available
+  Future<String?> hasToken() async {
+    return  await onboardingLocalDataSource.getToken();
   }
 }

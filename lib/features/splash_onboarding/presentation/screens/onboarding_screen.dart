@@ -3,23 +3,15 @@ import 'package:flutter_application_1/core/config/constants/app_sizes.dart';
 import 'package:flutter_application_1/core/config/constants/color_manager.dart';
 import 'package:flutter_application_1/core/config/constants/image_path.dart';
 import 'package:flutter_application_1/core/config/widgets/app_elevated_button%20.dart';
+import 'package:flutter_application_1/core/config/widgets/build_boarding_item.dart';
 import 'package:flutter_application_1/core/config/widgets/custom_appbar.dart';
 import 'package:flutter_application_1/core/config/widgets/dots_indicator.dart';
-import 'package:flutter_application_1/core/config/widgets/onboarding_content.dart';
 import 'package:flutter_application_1/core/extensions/text_style_extension.dart';
+import 'package:flutter_application_1/features/splash_onboarding/domain/model/boarding_model.dart';
 import 'package:flutter_application_1/features/splash_onboarding/presentation/bloc/splash_onboarding_bloc.dart';
 import 'package:flutter_application_1/features/splash_onboarding/presentation/bloc/splash_onboarding_event.dart';
 import 'package:flutter_application_1/features/splash_onboarding/presentation/bloc/splash_onboarding_state.dart';
-import 'package:flutter_application_1/home.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-class BoardingModel {
-  final String image;
-  final String title;
-  final String body;
-  final Color color;
-  BoardingModel(this.image, this.title, this.body, this.color);
-}
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -31,19 +23,19 @@ class OnboardingScreen extends StatefulWidget {
 class _OnboardingScreenState extends State<OnboardingScreen> {
   final List<BoardingModel> boardingModel = [
     BoardingModel(
-      '${ImagePath.image}/onboarding1.png',
+      ImagePath.onboarding1,
       "Follow your projects with ease",
       '"Manage all your projects and tasks from one place."',
       ColorManager.backgroundLight,
     ),
     BoardingModel(
-      '${ImagePath.image}/onboarding2.png',
+      ImagePath.onboarding2,
       "Calculate your profits easily",
       '"Record the hours worked for each tasks and let the app calculate the amount due automatically."',
       ColorManager.secondary,
     ),
     BoardingModel(
-      '${ImagePath.image}/onboarding3.png',
+      ImagePath.onboarding3,
       "Follow your projects with ease",
       '"Manage all your projects and tasks from one place."',
       ColorManager.primary,
@@ -64,22 +56,16 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     return BlocListener<SplashOnboardingBloc, SplashOnboardingState>(
       listener: (context, state) {
         if (state is NavigateToHomeState) {
-          Navigator.pushAndRemoveUntil(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const Home(),
-            ),
-            (route) {
-              return false;
-            },
-          );
+          Navigator.pushReplacementNamed(context, '/home');
+        } else if (state is NavigateToLoginState) {
+          Navigator.pushReplacementNamed(context, '/login');
         }
       },
       child: Scaffold(
         backgroundColor: boardingModel[currentIndex].color,
-      appBar: CustomAppBar(
-         backgroundColor: boardingModel[currentIndex].color,
-     actions: [
+        appBar: CustomAppBar(
+          backgroundColor: boardingModel[currentIndex].color,
+          actions: [
             if (!isLast)
               TextButton(
                 onPressed: () {
@@ -92,7 +78,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ),
               ),
           ],
-      ),
+        ),
         body: Padding(
           padding: const EdgeInsets.all(AppSizes.paddingSmall),
           child: Column(
@@ -102,31 +88,19 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   physics: const BouncingScrollPhysics(),
                   controller: boardingController,
                   itemBuilder: (context, index) {
-                    return OnboardingContent(
-                      path: boardingModel[index].image,
-                      title: boardingModel[index].title,
-                      subtitle: boardingModel[index].body,
-                      styleSubtitle: AppTextStyles.bodyMedium.copyWith(
-                        color: isLast
-                            ? ColorManager.backgroundLight
-                            : ColorManager.secondaryText,
-                      ),
-                    );
+                    return BuildBoardingItem(
+                        boardingModel: boardingModel[index], isLast: isLast);
                   },
                   itemCount: boardingModel.length,
                   onPageChanged: (value) {
                     setState(() {
                       currentIndex = value;
-                    });
-                    if (value == boardingModel.length - 1) {
-                      setState(() {
+                      if (value == boardingModel.length - 1) {
                         isLast = true;
-                      });
-                    } else {
-                      setState(() {
+                      } else {
                         isLast = false;
-                      });
-                    }
+                      }
+                    });
                   },
                 ),
               ),
@@ -155,8 +129,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     );
                   },
                 ),
-              const SizedBox(
-                height: 190,
+              // const Spacer(),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.2,
               )
             ],
           ),
