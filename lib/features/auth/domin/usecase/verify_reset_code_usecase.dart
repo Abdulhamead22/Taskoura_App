@@ -4,7 +4,7 @@ class VerifyResetCodeUsecase {
   final AuthRepository repository;
 
   VerifyResetCodeUsecase(this.repository);
-  Future<bool> call() async {
-    return await repository.verifyResetCode();
+  Future<bool> call(String code) async {
+    return await repository.verifyResetCode(code);
   }
 }

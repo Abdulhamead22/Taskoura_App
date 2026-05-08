@@ -4,7 +4,7 @@ class ResetPasswordUsecase {
   final AuthRepository repository;
 
   ResetPasswordUsecase(this.repository);
-  Future<bool> call() async {
-    return await repository.resetPassword();
+  Future<bool> call(String email, String newPassword) async {
+    return await repository.resetPassword(email,newPassword);
   }
 }

@@ -5,7 +5,9 @@ class LoginUsecase {
   final AuthRepository repository;
 
   LoginUsecase(this.repository);
-  Future<User> call() async {
-    return await repository.login();
+  Future<User> call(String email,
+    String password,) async {
+    
+    return await repository.login(email,password);
   }
 }

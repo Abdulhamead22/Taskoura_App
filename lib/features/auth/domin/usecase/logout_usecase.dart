@@ -4,7 +4,7 @@ class LogoutUsecase {
   final AuthRepository repository;
 
   LogoutUsecase(this.repository);
-  Future<String> call() async {
+  Future<void> call() async {
     return await repository.logout();
   }
 }
